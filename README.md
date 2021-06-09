@@ -16,10 +16,11 @@ $systemctl start nginx
 
 
 ## Now For SSL:
-
+```
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install certbot python3-certbot-nginx
 certbot certonly --standalone
+```
 Now type email and domain name, then certbot will provide public ip and private ip and will give path of those key's to us.
 
 
