@@ -1,14 +1,18 @@
 # Nginx_with_docker
 
+
 ## First launched instance
 
  ![m](1.png)
 
 ## For Giving Domain name to this instance i used noip.com
 
+
 ## Install and start nginx in  dockerhost (baseos):
 $yum install nginx -y
 $systemctl start nginx
+
+
 
 ## Now For SSL:
 
@@ -17,12 +21,13 @@ dnf install certbot python3-certbot-nginx
 certbot certonly --standalone
 Now type email and domain name, then certbot will provide public ip and private ip and will give path of those key's to us.
 
+
+
 ## Nginx conf file in dockerhost (baseos):
 
 In nginx.conf file to listen 443 and to enable ssl write {Listen 443 ssl;}
-
 And also give public ip and private ip path in front of keywords ssl_certificate and ssl_certificate_key respectively.
-Step5: restart nginx
+
 
 [root@ip-172-31-22-231 nginx]# cat nginx.conf
 http {
@@ -65,14 +70,19 @@ location / {
 
 events { }
 
+
+
 ## Now this nginx which is located in docker host will do proxy at port no 8080, So idea is to expose docker container on port no 8080.
 
-Launching Container  : I am using CentOS image :
+
+
+## Launching Container  : I am using CentOS image :
 $docker run -it -p 8080:80 --name op centos
 $yum install nginx -y              (install nginx)
 $/usr/sbin/nginx                      (start nginx service)
 
-Docker container nginx configuration file:
+
+## Docker container nginx configuration file:
 [root@8e8c92dc43e1 nginx]# cat nginx.conf
 user nginx;
 worker_processes auto;
