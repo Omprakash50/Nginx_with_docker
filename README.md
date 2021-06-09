@@ -9,9 +9,10 @@
 
 
 ## Install and start nginx in  dockerhost (baseos):
+```
 $yum install nginx -y
 $systemctl start nginx
-
+```
 
 
 ## Now For SSL:
@@ -30,6 +31,7 @@ And also give public ip and private ip path in front of keywords ssl_certificate
 
 
 [root@ip-172-31-22-231 nginx]# cat nginx.conf
+```
 http {
     log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                       '$status $body_bytes_sent "$http_referer" '
@@ -69,7 +71,7 @@ location / {
 }
 
 events { }
-
+```
 
 
 ## Now this nginx which is located in docker host will do proxy at port no 8080, So idea is to expose docker container on port no 8080.
@@ -77,12 +79,14 @@ events { }
 
 
 ## Launching Container  : I am using CentOS image :
+```
 $docker run -it -p 8080:80 --name op centos
 $yum install nginx -y              (install nginx)
 $/usr/sbin/nginx                      (start nginx service)
-
+```
 
 ## Docker container nginx configuration file:
+```
 [root@8e8c92dc43e1 nginx]# cat nginx.conf
 user nginx;
 worker_processes auto;
@@ -132,7 +136,7 @@ http {
     }
 }
  
-
+```
 ## Now create the webpage with content in docker container:
 "Hello from SoluLab"
 
