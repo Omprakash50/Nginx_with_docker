@@ -1,7 +1,7 @@
 # Nginx_with_docker
 
 
-## First launched instance
+## First launch instance
 
  ![m](1.png)
 
@@ -141,3 +141,11 @@ http {
 
 
  ![m](2.png)
+
+
+>Thank you  
+  
+## Author
+[**Ompraksh choudhari**](https://github.com/Omprakash50)
+   
+   [Linkedin](https://www.linkedin.com/in/omprakash-choudhari-252027196)
